@@ -14,13 +14,13 @@ module.exports = function check(str, bracketsConfig) {
     let c = str[i];
 
     if (opening[c]) {
-      if (c == opening[c] && flag) {
+      if (c == opening[c] && stack[stack.length-1] != c) {
         stack.push(c);
-        flag = false;
         continue;
       }
       if (c != opening[c]) {
         stack.push(c);
+        continue;
       }
     }
 
